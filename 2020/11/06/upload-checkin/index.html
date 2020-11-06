@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>upload_checkin | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="UpLoad概述文件上传这个功能本身没有问题 有问题的是文件上传后，服务器怎么处理、解释文件。 如果服务器的处理逻辑不够安全，就会导致上传的可执行脚本文件被web容器解释执行，从而造成严重后果 前端绕过js绕过前端的认证  如何判断是否是客户端js检测 选择一个.php后缀的文件，同时使用burpsuite进行抓包。 点击上传，可以看到还没有数据经过burpsuite，浏览器就已经弹出警示框，说明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="upload_checkin">
+<meta property="og:url" content="http://example.com/2020/11/06/upload-checkin/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="UpLoad概述文件上传这个功能本身没有问题 有问题的是文件上传后，服务器怎么处理、解释文件。 如果服务器的处理逻辑不够安全，就会导致上传的可执行脚本文件被web容器解释执行，从而造成严重后果 前端绕过js绕过前端的认证  如何判断是否是客户端js检测 选择一个.php后缀的文件，同时使用burpsuite进行抓包。 点击上传，可以看到还没有数据经过burpsuite，浏览器就已经弹出警示框，说明">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/857264/201806/857264-20180616162552284-1877052102.png">
+<meta property="article:published_time" content="2020-11-06T11:44:01.000Z">
+<meta property="article:modified_time" content="2020-11-06T13:08:47.944Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="buu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images2018.cnblogs.com/blog/857264/201806/857264-20180616162552284-1877052102.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-upload-checkin" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/06/upload-checkin/" class="article-date">
+  <time datetime="2020-11-06T11:44:01.000Z" itemprop="datePublished">2020-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      upload_checkin
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="UpLoad"><a href="#UpLoad" class="headerlink" title="UpLoad"></a>UpLoad</h1><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>文件上传这个功能本身没有问题</p>
+<p>有问题的是文件上传后，服务器怎么处理、解释文件。</p>
+<p>如果服务器的处理逻辑不够安全，就会导致上传的可执行脚本文件被web容器解释执行，从而造成严重后果</p>
+<h3 id="前端绕过"><a href="#前端绕过" class="headerlink" title="前端绕过"></a>前端绕过</h3><h5 id="js绕过"><a href="#js绕过" class="headerlink" title="js绕过"></a>js绕过</h5><p>前端的认证</p>
+<blockquote>
+<p>如何判断是否是客户端js检测</p>
+<p>选择一个.php后缀的文件，同时使用burpsuite进行抓包。</p>
+<p>点击上传，可以看到还没有数据经过burpsuite，浏览器就已经弹出警示框，说明数据还没有发送给服务器，程序就判断出来文件类型不对，因此就可以得出结论这个是通过客户端进行的本地文件检测</p>
+</blockquote>
+<ul>
+<li><p>直接删除验证点的代码。这样可以直接绕过验证。</p>
+<ul>
+<li><form enctype="multipart/form-data" method="post" onsubmit="return checkFile()">，
+
+<p>其中的onsubmit=”return checkFile()的作用就是当点击上传按钮的时候，就会触发js验证脚本，所以将这一部分删除，变可以成功绕过检测</p>
+</li>
+</ul>
+</li>
+<li><p>使用浏览器的插件可以实现禁用js的功能</p>
+</li>
+<li><p>遇到的题目可能会有相关的js代码那么我们可以通过修改相关的代码来添加我们需要上传的文件类型</p>
+</li>
+<li><p>在burpsuite中进行修改文件的后缀。</p>
+</li>
+</ul>
+<h3 id="后端（服务端）绕过"><a href="#后端（服务端）绕过" class="headerlink" title="后端（服务端）绕过"></a>后端（服务端）绕过</h3><h5 id="后端检测content-type（检查文件的MIME类型）"><a href="#后端检测content-type（检查文件的MIME类型）" class="headerlink" title="后端检测content-type（检查文件的MIME类型）"></a>后端检测content-type（检查文件的MIME类型）</h5><blockquote>
+<p>MIME（Multipurpose Internet Mail Extensions):描述消息内容类型的因特网标准.是设定某种<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%89%A9%E5%B1%95%E5%90%8D/103577">扩展名</a>的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%96%87%E4%BB%B6/6270998">文件</a>用一种<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/5985445">应用程序</a>来打开的方式类型，当该扩展名文件被访问的时候，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B5%8F%E8%A7%88%E5%99%A8/213911">浏览器</a>会自动使用指定应用程序来打开。</p>
+<p>MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据</p>
+<p>当用户上传文件到服务器端的时候，服务器端的程序会获取上传文件的MIME类型</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (($_FILES[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/jpeg&#x27;</span>) || ($_FILES[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/png&#x27;</span>) || ($_FILES[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/gif&#x27;</span>))&#123;</span><br><span class="line"></span><br><span class="line"> ...<span class="comment">//判断过后对文件处理的进一步操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="MIME信息头"><a href="#MIME信息头" class="headerlink" title="MIME信息头"></a>MIME信息头</h5></blockquote>
+<ul>
+<li>由于MIME类型的值是从HTTP请求字段里的Content-Type字段获取的，所以绕过的方法就是通过修改Content-Type的值，比如修改为image/jpeg；image/png；image/gif等等允许上传类型对应的MIME值</li>
+</ul>
+<p><img src="https://images2018.cnblogs.com/blog/857264/201806/857264-20180616162552284-1877052102.png" alt="img"></p>
+<h5 id="后端检测文件内容"><a href="#后端检测文件内容" class="headerlink" title="后端检测文件内容"></a>后端检测文件内容</h5><h5 id="基于黑名单的文件名过滤绕过"><a href="#基于黑名单的文件名过滤绕过" class="headerlink" title="基于黑名单的文件名过滤绕过"></a>基于黑名单的文件名过滤绕过</h5><ul>
+<li><p><code>&quot;.php&quot;,&quot;.php5&quot;,&quot;.php4&quot;,&quot;.php3&quot;,&quot;.php2&quot;,&quot;php1&quot;,&quot;.html&quot;,&quot;.htm&quot;,&quot;.phtml&quot;,</code></p>
+<p> <code>&quot;.pht&quot;,&quot;.pHp&quot;,&quot;.pHp5&quot;,&quot;.pHp4&quot;,&quot;.pHp3&quot;,&quot;.pHp2&quot;,&quot;pHp1&quot;,&quot;.Html&quot;,&quot;.Htm&quot;,&quot;.pHtml&quot;,</code></p>
+<p> <code>&quot;.jsp&quot;,&quot;.jspa&quot;,&quot;.jspx&quot;,&quot;.jsw&quot;,&quot;.jsv&quot;,&quot;.jspf&quot;,&quot;.jtml&quot;,&quot;.jSp&quot;,&quot;.jSpx&quot;,&quot;.jSpa&quot;,</code></p>
+<p> <code>&quot;.jSw&quot;,&quot;.jSv&quot;,&quot;.jSpf&quot;,&quot;.jHtml&quot;,&quot;.asp&quot;,&quot;.aspx&quot;,&quot;.asa&quot;,&quot;.asax&quot;,&quot;.ascx&quot;,&quot;.ashx&quot;,</code></p>
+<p> <code>&quot;.asmx&quot;,&quot;.cer&quot;,&quot;.aSp&quot;,&quot;.aSpx&quot;,&quot;.aSa&quot;,&quot;.aSax&quot;,&quot;.aScx&quot;,&quot;.aShx&quot;,&quot;.aSmx&quot;,&quot;.cEr&quot;,</code></p>
+<p> <code>&quot;.sWf&quot;,&quot;.swf&quot;,&quot;.htaccess&quot;);. </code> </p>
+<p>前提是apache的httpd.conf中有如下配置代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application&#x2F;x-httpd-php .php .phtml .phps .php5 .pht</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+<li><p>大小写绕过（没有转小写函数时）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$file_ext &#x3D; strtolower($file_ext); &#x2F;&#x2F;转换为小写</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>空格绕过:”1.php “</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$file_ext = trim($file_ext); <span class="comment">//首尾去空</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>点绕过：没有对后缀名末尾的点进行处理，利用windows特性，会自动去掉后缀名中最后的”.”</p>
+</li>
+</ul>
+<h5 id="基于白名单的文件名过滤绕过"><a href="#基于白名单的文件名过滤绕过" class="headerlink" title="基于白名单的文件名过滤绕过"></a>基于白名单的文件名过滤绕过</h5><ul>
+<li><p>空字节注入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell.php%00.png</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>双写扩展名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell.jpg.php</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/06/upload-checkin/" data-id="ckh69zngl0000fktw7dgqcjqw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/buu/" rel="tag">buu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/06/python01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python01</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag"><python></a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%EF%BC%8C%E7%AE%80%E4%BB%8B/" rel="tag"><历史，简介></a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/buu/" rel="tag">buu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/python/" style="font-size: 10px;"><python></a> <a href="/tags/%E5%8E%86%E5%8F%B2%EF%BC%8C%E7%AE%80%E4%BB%8B/" style="font-size: 10px;"><历史，简介></a> <a href="/tags/buu/" style="font-size: 10px;">buu</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/06/upload-checkin/">upload_checkin</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/06/python01/">python01</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/05/Python00/">Python00</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/23/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
