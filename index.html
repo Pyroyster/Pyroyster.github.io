@@ -64,6 +64,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python03" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/07/python03/" class="article-date">
+  <time datetime="2020-11-07T02:34:22.000Z" itemprop="datePublished">2020-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/07/python03/">python03</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h1><h4 id="00"><a href="#00" class="headerlink" title="00"></a>00</h4><p>在Python中构造循环结构有两种做法，一种是<code>for-in</code>循环，一种是<code>while</code>循环。</p>
+<h4 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h4><p>如果明确的知道循环执行的次数或者要对一个容器进行迭代（后面会讲到），那么我们推荐使用<code>for-in</code>循环</p>
+<p>range()构造一个范围，<code>range</code>的用法非常灵活</p>
+<ul>
+<li><code>range(101)</code>：可以用来产生0到100范围的整数，需要注意的是取不到101。</li>
+<li><code>range(1, 101)</code>：可以用来产生1到100范围的整数，相当于前面是闭区间后面是开区间。</li>
+<li><code>range(1, 101, 2)</code>：可以用来产生1到100的奇数，其中2是步长，即每次数值递增的值。</li>
+<li><code>range(100, 0, -2)</code>：可以用来产生100到1的偶数，其中-2是步长，即每次数字递减的值。</li>
+</ul>
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">九九乘法表</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i,i+<span class="number">1</span>):</span><br><span class="line">        print(<span class="string">&#x27;%d*%d=%d&#x27;</span> % (i,j,i*j),end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">row = int(input(<span class="string">&#x27;请输入行数: &#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(row):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>):</span><br><span class="line">        print(<span class="string">&#x27;*&#x27;</span>,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    print()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(row):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(row):</span><br><span class="line">        <span class="keyword">if</span> j&lt;row-i<span class="number">-1</span>:</span><br><span class="line">            print(<span class="string">&#x27; &#x27;</span>,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&#x27;*&#x27;</span>,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    print()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/07/python03/" data-id="ckh73thld000010tw1dl15qp2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag"><python></a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python02" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/07/python02/" class="article-date">
@@ -492,6 +543,10 @@
       <ul>
         
           <li>
+            <a href="/2020/11/07/python03/">python03</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/07/python02/">python02</a>
           </li>
         
@@ -505,10 +560,6 @@
         
           <li>
             <a href="/2020/11/05/Python00/">Python00</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/23/hello-world/">Hello World</a>
           </li>
         
       </ul>
