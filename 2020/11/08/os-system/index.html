@@ -5,17 +5,17 @@
   
 
   
-  <title>python04 | Hexo</title>
+  <title>os.system | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="练习123456a&#x3D;0b&#x3D;1for x in range(20):    a,b&#x3D;b,a+b    print(a,end&#x3D;&amp;#x27; &amp;#x27;)">
+  <meta name="description" content="os.system方法00os.system方法是os模块最基础的方法，其它的方法一般在该方法基础上封装完成。 原理 system函数可以将字符串转化成命令在服务器上运行；其原理是每一条system函数执行时，其会创建一个子进程在系统上执行命令行，子进程的执行结果无法影响主进程； 上述原理会导致当需要执行多条命令行的时候可能得不到预期的结果；  12345import osos.system(&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python04">
-<meta property="og:url" content="http://example.com/2020/11/07/python04/index.html">
+<meta property="og:title" content="os.system">
+<meta property="og:url" content="http://example.com/2020/11/08/os-system/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="练习123456a&#x3D;0b&#x3D;1for x in range(20):    a,b&#x3D;b,a+b    print(a,end&#x3D;&amp;#x27; &amp;#x27;)">
+<meta property="og:description" content="os.system方法00os.system方法是os模块最基础的方法，其它的方法一般在该方法基础上封装完成。 原理 system函数可以将字符串转化成命令在服务器上运行；其原理是每一条system函数执行时，其会创建一个子进程在系统上执行命令行，子进程的执行结果无法影响主进程； 上述原理会导致当需要执行多条命令行的时候可能得不到预期的结果；  12345import osos.system(&amp;#">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-11-07T03:50:54.000Z">
-<meta property="article:modified_time" content="2020-11-07T04:04:23.291Z">
+<meta property="article:published_time" content="2020-11-08T04:37:33.000Z">
+<meta property="article:modified_time" content="2020-11-08T04:39:41.837Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-python04" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-os-system" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/11/07/python04/" class="article-date">
-  <time datetime="2020-11-07T03:50:54.000Z" itemprop="datePublished">2020-11-07</time>
+    <a href="/2020/11/08/os-system/" class="article-date">
+  <time datetime="2020-11-08T04:37:33.000Z" itemprop="datePublished">2020-11-08</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      python04
+      os.system
     </h1>
   
 
@@ -89,13 +89,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">0</span></span><br><span class="line">b=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    a,b=b,a+b</span><br><span class="line">    print(a,end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
+        <h1 id="os-system方法"><a href="#os-system方法" class="headerlink" title="os.system方法"></a>os.system方法</h1><h4 id="00"><a href="#00" class="headerlink" title="00"></a>00</h4><p>os.system方法是os模块最基础的方法，其它的方法一般在该方法基础上封装完成。</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><ul>
+<li>system函数可以将字符串转化成命令在服务器上运行；其原理是每一条system函数执行时，其会创建一个子进程在系统上执行命令行，子进程的执行结果无法影响主进程；</li>
+<li>上述原理会导致当需要执行多条命令行的时候可能得不到预期的结果；</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">&#x27;cd /usr/local&#x27;</span>)</span><br><span class="line">os.mkdir(<span class="string">&#x27;aaa.txt)</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上述程序运行后会发现txt文件并没有创建在/usr/local文件夹下，而是在当前的目录下；</li>
+</ul>
+<p>为了保证system执行多条命令可以成功，多条命令需要在同一个子进程中运行；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">&#x27;cd /usr/local &amp;&amp; mkdir aaa.txt&#x27;</span>)</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">os.system(<span class="string">&#x27;cd /usr/local ; mkdir aaa.txt&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/07/python04/" data-id="ckh78oyaw00000otw8znma3ev" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/08/os-system/" data-id="ckh8ogghw0000i4twb4dpa6e2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
@@ -106,19 +117,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/11/07/%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          函数和模块
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/07/python03/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/11/08/yield/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">python03</div>
+      <div class="article-nav-title">yield</div>
     </a>
   
 </nav>

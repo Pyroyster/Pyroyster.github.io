@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>字符串和常用数据结构 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="字符串和常用数据结构切片12345678910111213141516fruits &#x3D; [&amp;#x27;grape&amp;#x27;, &amp;#x27;apple&amp;#x27;, &amp;#x27;strawberry&amp;#x27;, &amp;#x27;waxberry&amp;#x27;]fruits +&#x3D; [&amp;#x27;pitaya&amp;#x27;, &amp;#x27;pear&amp;#x27;, &amp;#x27;mango&amp;#x27;]fruit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串和常用数据结构">
+<meta property="og:url" content="http://example.com/2020/11/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="字符串和常用数据结构切片12345678910111213141516fruits &#x3D; [&amp;#x27;grape&amp;#x27;, &amp;#x27;apple&amp;#x27;, &amp;#x27;strawberry&amp;#x27;, &amp;#x27;waxberry&amp;#x27;]fruits +&#x3D; [&amp;#x27;pitaya&amp;#x27;, &amp;#x27;pear&amp;#x27;, &amp;#x27;mango&amp;#x27;]fruit">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-07T05:24:26.000Z">
+<meta property="article:modified_time" content="2020-11-08T04:40:32.920Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-字符串和常用数据结构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-date">
+  <time datetime="2020-11-07T05:24:26.000Z" itemprop="datePublished">2020-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      字符串和常用数据结构
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="字符串和常用数据结构"><a href="#字符串和常用数据结构" class="headerlink" title="字符串和常用数据结构"></a>字符串和常用数据结构</h1><h4 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&#x27;grape&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;strawberry&#x27;</span>, <span class="string">&#x27;waxberry&#x27;</span>]</span><br><span class="line">fruits += [<span class="string">&#x27;pitaya&#x27;</span>, <span class="string">&#x27;pear&#x27;</span>, <span class="string">&#x27;mango&#x27;</span>]</span><br><span class="line"></span><br><span class="line">fruits2=fruits[<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line">print(fruits2)</span><br><span class="line"></span><br><span class="line">fruits3=fruits2[:]<span class="comment">#完整切片</span></span><br><span class="line">print(fruits3)</span><br><span class="line"></span><br><span class="line">print(fruits[<span class="number">-3</span>:<span class="number">-1</span>])<span class="comment">#倒三和倒二</span></span><br><span class="line">print(fruits[<span class="number">-3</span>:])</span><br><span class="line"><span class="comment">#完整切片不使用default</span></span><br><span class="line">print(fruits[::<span class="number">-1</span>])</span><br><span class="line">print(fruits[::<span class="number">-3</span>])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>由零个或多个字符组成的有限序列</p>
+<p><strong>把单个或多个字符用单引号或者双引号包围起来</strong></p>
+<p><strong><code>\</code>（反斜杠）来表示转义</strong>，也就是说<code>\</code>后面的字符不再是它原来的意义，例如：<code>\n</code>不是代表反斜杠和字符n，而是表示换行；而<code>\t</code>也不是代表反斜杠和字符t，而是表示制表符。</p>
+<p>所以如果想在字符串中表示<code>&#39;</code>要写成<code>\&#39;</code>，同理想表示<code>\</code>要写成<code>\\</code>。</p>
+<p>在<code>\</code>后面还可以跟一个八进制或者十六进制数来表示字符，例如<code>\141</code>和<code>\x61</code>都代表小写字母<code>a</code></p>
+<p>也可以在<code>\</code>后面跟Unicode字符编码来表示字符，例如<code>\u9a86\u660a</code>代表的是中文“骆昊”</p>
+<p>如果不希望字符串中的<code>\</code>表示转义，我们可以通过在字符串的最前面加上字母<code>r</code>来加以说明，再看看下面的代码又会输出什么。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 &#x3D; r&#39;\&#39;hello, world!\&#39;&#39;</span><br><span class="line">s2 &#x3D; r&#39;\n\\hello, world!\\\n&#39;</span><br><span class="line">print(s1, s2, end&#x3D;&#39;&#39;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串类型相关运算符"><a href="#字符串类型相关运算符" class="headerlink" title="字符串类型相关运算符"></a>字符串类型相关运算符</h4><p>我们可以使用<code>+</code>运算符来实现字符串的拼接，</p>
+<p>可以使用<code>*</code>运算符来重复一个字符串的内容，</p>
+<p>可以使用<code>in</code>和<code>not in</code>来判断一个字符串是否包含另外一个字符串（成员运算），</p>
+<p>我们也可以用<code>[]</code>和<code>[:]</code>运算符从字符串取出某个字符或某些字符（切片运算）</p>
+<h4 id="其他对字符串的处理"><a href="#其他对字符串的处理" class="headerlink" title="其他对字符串的处理"></a>其他对字符串的处理</h4><p>数值类型是标量类型，也就是说这种类型的对象没有可以访问的内部结构；而字符串类型是一种结构化的、非标量类型，所以才会有一系列的属性和方法</p>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>列表（<code>list</code>），也是一种结构化的、非标量类型，它是值的有序序列，每个值都可以通过索引进行标识</p>
+<p>定义列表可以将列表的元素放在<code>[]</code>中，多个元素用<code>,</code>进行分隔，可以使用<code>for</code>循环对列表元素进行遍历，也可以使用<code>[]</code>或<code>[:]</code>运算符取出列表中的一个或多个元素。</p>
+<ul>
+<li>定义列表</li>
+<li>遍历列表</li>
+<li>列表的下标运算</li>
+</ul>
+<p>enumerate()函数用于将一个可遍历的数据对象（如列表、元组、字符串）组合为一个索引序列，同时列出数据下标（index)和数据(elem)。该函数可以定义start</p>
+<h4 id="列表操作"><a href="#列表操作" class="headerlink" title="列表操作"></a>列表操作</h4><blockquote>
+<p>list 的 sort 方法返回的是对已经存在的列表进行操作，无返回值，<br>而内建函数 sorted 方法返回的是一个新的 list，而不是在原来的基础上进行的操作。</p>
+<p>sorted(iterable, cmp=None, key=None, reverse=False)</p>
+<ul>
+<li>terable – 可迭代对象。</li>
+<li>cmp – 比较的函数，这个具有两个参数，参数的值都是从可迭代对象中取出，此函数必须遵守的规则为，大于则返回1，小于则返回-1，等于则返回0。</li>
+<li>key – 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序。</li>
+<li>reverse – 排序规则，reverse = True 降序 ， reverse = False 升序（默认）。</li>
+</ul>
+<p>key 和 reverse 比一个等价的 cmp 函数处理速度要快。这是因为对于每个列表元素，cmp 都会被调用多次，而key和reverse只被调用一次</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;zoo&#x27;</span>, <span class="string">&#x27;internationalization&#x27;</span>, <span class="string">&#x27;blueberry&#x27;</span>]</span><br><span class="line">list2 = sorted(list1)</span><br><span class="line"><span class="comment"># sorted函数返回列表排序后的拷贝不会修改传入的列表</span></span><br><span class="line"><span class="comment"># 函数的设计就应该像sorted函数一样尽可能不产生副作用</span></span><br><span class="line">list3 = sorted(list1, reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 通过key关键字参数指定根据字符串长度进行排序而不是默认的字母表顺序</span></span><br><span class="line">list4 = sorted(list1, key=len)</span><br><span class="line">print(list1)</span><br><span class="line">print(list2)</span><br><span class="line">print(list3)</span><br><span class="line">print(list4)</span><br><span class="line"><span class="comment"># 给列表对象发出排序消息直接在列表对象上进行排序</span></span><br><span class="line">list1.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">print(list1)</span><br></pre></td></tr></table></figure>
+
+<h4 id="生成式语法和生成器语法"><a href="#生成式语法和生成器语法" class="headerlink" title="生成式语法和生成器语法"></a>生成式语法和生成器语法</h4><p>（用生成式语法创建列表）</p>
+<p>（用生成器语法创建一个生成器对象）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">f=[x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>)]</span><br><span class="line">print(f)</span><br><span class="line">print(sys.getsizeof(f))</span><br><span class="line"></span><br><span class="line">f=(x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line">print(f)</span><br><span class="line"><span class="keyword">for</span> val <span class="keyword">in</span> f:</span><br><span class="line">    print(val,end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">print()</span><br><span class="line">print(sys.getsizeof(f))</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">[1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line"><span class="string">192</span></span><br><span class="line"><span class="string">&lt;generator object &lt;genexpr&gt; at 0x0000023C0CD7C0C0&gt;</span></span><br><span class="line"><span class="string">1 2 3 4 5 6 7 8 9 </span></span><br><span class="line"><span class="string">120</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>（还可以用yield关键字将普通函数改造成生成器函数）</p>
+<h4 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h4><p>元组与列表类似也是一种容器数据类型</p>
+<p>我们已经有了列表这种数据结构，为什么还需要元组这样的类型呢？</p>
+<ol>
+<li>元组中的元素是无法修改的（但是可以给它重新赋值），事实上我们在项目中尤其是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a>环境（后面会讲到）中可能更喜欢使用的是那些不变对象（一方面因为对象状态不能修改，所以可以避免由此引起的不必要的程序错误，简单的说就是一个不变的对象要比可变的对象更加容易维护；另一方面因为没有任何一个线程能够修改不变对象的内部状态，一个不变对象自动就是线程安全的，这样就可以省掉处理同步化的开销。一个不变对象可以方便的被共享访问）。所以结论就是：如果不需要对元素进行添加、删除、修改的时候，可以考虑使用元组，当然如果一个方法要返回多个值，使用元组也是不错的选择。</li>
+<li>元组在创建时间和占用的空间上面都优于列表。我们可以使用sys模块的getsizeof函数来检查存储同样的元素的元组和列表各自占用了多少内存空间，这个很容易做到。我们也可以在ipython中使用魔法指令%timeit来分析创建同样内容的元组和列表所花费的时间</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义元组</span></span><br><span class="line">t = (<span class="string">&#x27;骆昊&#x27;</span>, <span class="number">38</span>, <span class="literal">True</span>, <span class="string">&#x27;四川成都&#x27;</span>)</span><br><span class="line">print(t)</span><br><span class="line"><span class="comment"># 获取元组中的元素</span></span><br><span class="line">print(t[<span class="number">0</span>])</span><br><span class="line">print(t[<span class="number">3</span>])</span><br><span class="line"><span class="comment"># 遍历元组中的值</span></span><br><span class="line"><span class="keyword">for</span> member <span class="keyword">in</span> t:</span><br><span class="line">    print(member)</span><br><span class="line"><span class="comment"># 重新给元组赋值</span></span><br><span class="line"><span class="comment"># t[0] = &#x27;王大锤&#x27;  # TypeError</span></span><br><span class="line"><span class="comment"># 变量t重新引用了新的元组原来的元组将被垃圾回收</span></span><br><span class="line">t = (<span class="string">&#x27;王大锤&#x27;</span>, <span class="number">20</span>, <span class="literal">True</span>, <span class="string">&#x27;云南昆明&#x27;</span>)</span><br><span class="line">print(t)</span><br><span class="line"><span class="comment"># 将元组转换成列表</span></span><br><span class="line">person = list(t)</span><br><span class="line">print(person)</span><br><span class="line"><span class="comment"># 列表是可以修改它的元素的</span></span><br><span class="line">person[<span class="number">0</span>] = <span class="string">&#x27;李小龙&#x27;</span></span><br><span class="line">person[<span class="number">1</span>] = <span class="number">25</span></span><br><span class="line">print(person)</span><br><span class="line"><span class="comment"># 将列表转换成元组</span></span><br><span class="line">fruits_list = [<span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>]</span><br><span class="line">fruits_tuple = tuple(fruits_list)</span><br><span class="line">print(fruits_tuple)</span><br></pre></td></tr></table></figure>
+
+<h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h4><p>不允许有重复元素</p>
+<p>定义集合可以将集合的元素放在<code>&#123;&#125;</code>中</p>
+<p>创建集合的构造器语法/类似枚举</p>
+<p>创建集合的推导式语法/类似条件限制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 创建集合的字面量语法</span><br><span class="line">set1 &#x3D; &#123;1, 2, 3, 3, 3, 2&#125;</span><br><span class="line">print(set1)</span><br><span class="line">print(&#39;Length &#x3D;&#39;, len(set1))</span><br><span class="line"># 创建集合的构造器语法(面向对象部分会进行详细讲解)</span><br><span class="line">set2 &#x3D; set(range(1, 10))</span><br><span class="line">set3 &#x3D; set((1, 2, 3, 3, 2, 1))</span><br><span class="line">print(set2, set3)</span><br><span class="line"># 创建集合的推导式语法(推导式也可以用于推导集合)</span><br><span class="line">set4 &#x3D; &#123;num for num in range(1, 100) if num % 3 &#x3D;&#x3D; 0 or num % 5 &#x3D;&#x3D; 0&#125;</span><br><span class="line">print(set4)</span><br></pre></td></tr></table></figure>
+
+<p>向集合添加元素和从集合删除元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">set1.add(4)</span><br><span class="line">set1.add(5)</span><br><span class="line">set2.update([11, 12])</span><br><span class="line">set2.discard(5)</span><br><span class="line">if 4 in set2:</span><br><span class="line">    set2.remove(4)</span><br><span class="line">print(set1, set2)</span><br><span class="line">print(set3.pop())</span><br><span class="line">print(set3)</span><br></pre></td></tr></table></figure>
+
+<p>集合的成员、交集、并集、差集等运算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 集合的交集、并集、差集、对称差运算</span><br><span class="line">print(set1 &amp; set2)</span><br><span class="line"># print(set1.intersection(set2))</span><br><span class="line">print(set1 | set2)</span><br><span class="line"># print(set1.union(set2))</span><br><span class="line">print(set1 - set2)</span><br><span class="line"># print(set1.difference(set2))</span><br><span class="line">print(set1 ^ set2)</span><br><span class="line"># print(set1.symmetric_difference(set2))</span><br><span class="line"># 判断子集和超集</span><br><span class="line">print(set2 &lt;&#x3D; set1)</span><br><span class="line"># print(set2.issubset(set1))</span><br><span class="line">print(set3 &lt;&#x3D; set1)</span><br><span class="line"># print(set3.issubset(set1))</span><br><span class="line">print(set1 &gt;&#x3D; set2)</span><br><span class="line"># print(set1.issuperset(set2))</span><br><span class="line">print(set1 &gt;&#x3D; set3)</span><br><span class="line"># print(set1.issuperset(set3))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明：</strong> Python中允许通过一些特殊的方法来为某种类型或数据结构自定义运算符（后面的章节中会讲到），上面的代码中我们对集合进行运算的时候可以调用集合对象的方法，也可以直接使用对应的运算符，例如<code>&amp;</code>运算符跟intersection方法的作用就是一样的，但是使用运算符让代码更加直观。</p>
+</blockquote>
+<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h4><p>字典是另一种可变容器模型，它可以存储任意类型对象，</p>
+<p>与列表、集合不同的是，字典的每个元素都是由一个键和一个值组成的“键值对”，键和值通过冒号分开</p>
+<p>定义：{‘key’：value,……}</p>
+<p>构造器语法</p>
+<p>推导式语法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建字典的字面量语法</span></span><br><span class="line">scores = &#123;<span class="string">&#x27;骆昊&#x27;</span>: <span class="number">95</span>, <span class="string">&#x27;白元芳&#x27;</span>: <span class="number">78</span>, <span class="string">&#x27;狄仁杰&#x27;</span>: <span class="number">82</span>&#125;</span><br><span class="line">print(scores)</span><br><span class="line"><span class="comment"># 创建字典的构造器语法</span></span><br><span class="line">items1 = dict(one=<span class="number">1</span>, two=<span class="number">2</span>, three=<span class="number">3</span>, four=<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 通过zip函数将两个序列压成字典</span></span><br><span class="line">items2 = dict(zip([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>], <span class="string">&#x27;123&#x27;</span>))</span><br><span class="line"><span class="comment"># 创建字典的推导式语法</span></span><br><span class="line">items3 = &#123;num: num ** <span class="number">2</span> <span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>)&#125;</span><br><span class="line">print(items1, items2, items3)</span><br><span class="line"><span class="comment"># 通过键可以获取字典中对应的值</span></span><br><span class="line">print(scores[<span class="string">&#x27;骆昊&#x27;</span>])</span><br><span class="line">print(scores[<span class="string">&#x27;狄仁杰&#x27;</span>])</span><br><span class="line"><span class="comment"># 对字典中所有键值对进行遍历</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> scores:</span><br><span class="line">    print(<span class="string">f&#x27;<span class="subst">&#123;key&#125;</span>: <span class="subst">&#123;scores[key]&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment"># 更新字典中的元素</span></span><br><span class="line">scores[<span class="string">&#x27;白元芳&#x27;</span>] = <span class="number">65</span></span><br><span class="line">scores[<span class="string">&#x27;诸葛王朗&#x27;</span>] = <span class="number">71</span></span><br><span class="line">scores.update(冷面=<span class="number">67</span>, 方启鹤=<span class="number">85</span>)</span><br><span class="line">print(scores)</span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;武则天&#x27;</span> <span class="keyword">in</span> scores:</span><br><span class="line">    print(scores[<span class="string">&#x27;武则天&#x27;</span>])</span><br><span class="line">print(scores.get(<span class="string">&#x27;武则天&#x27;</span>))</span><br><span class="line"><span class="comment"># get方法也是通过键获取对应的值但是可以设置默认值</span></span><br><span class="line">print(scores.get(<span class="string">&#x27;武则天&#x27;</span>, <span class="number">60</span>))</span><br><span class="line"><span class="comment"># 删除字典中的元素</span></span><br><span class="line">print(scores.popitem())</span><br><span class="line">print(scores.popitem())</span><br><span class="line">print(scores.pop(<span class="string">&#x27;骆昊&#x27;</span>, <span class="number">100</span>))</span><br><span class="line"><span class="comment"># 清空字典</span></span><br><span class="line">scores.clear()</span><br><span class="line">print(scores)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" data-id="ckh8oggih0003i4tw4u3waotp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/08/yield/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          yield
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/07/%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">函数和模块</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag"><python></a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%EF%BC%8C%E7%AE%80%E4%BB%8B/" rel="tag"><历史，简介></a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/buu/" rel="tag">buu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/python/" style="font-size: 15px;"><python></a> <a href="/tags/%E5%8E%86%E5%8F%B2%EF%BC%8C%E7%AE%80%E4%BB%8B/" style="font-size: 10px;"><历史，简介></a> <a href="/tags/buu/" style="font-size: 10px;">buu</a> <a href="/tags/python/" style="font-size: 20px;">python</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/08/os-system/">os.system</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/08/yield/">yield</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">字符串和常用数据结构</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/07/%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97/">函数和模块</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/07/python04/">python04</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
