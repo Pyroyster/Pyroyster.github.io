@@ -64,6 +64,194 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/06/python01/" class="article-date">
+  <time datetime="2020-11-06T07:42:48.000Z" itemprop="datePublished">2020-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/06/python01/">python01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="语言元素"><a href="#语言元素" class="headerlink" title="语言元素"></a>语言元素</h1><h4 id="指令和程序"><a href="#指令和程序" class="headerlink" title="指令和程序"></a>指令和程序</h4><p>运算器、控制器、存储器、输入设备和输出设备</p>
+<p>运算器+控制器=中央处理器（CPU）：</p>
+<ul>
+<li>执行各种运算和控制指令（程序就是指令的集合）</li>
+<li>处理计算机软件中的数据</li>
+</ul>
+<p>我们程序就是将一系列的指令按照某种方式组织到一起，然后通过这些指令去控制计算机做我们想让它做的事情</p>
+<h5 id="冯诺依曼体系"><a href="#冯诺依曼体系" class="headerlink" title="冯诺依曼体系"></a>冯诺依曼体系</h5><p>​    两个关键点</p>
+<p>​    一是指出要将存储设备与中央处理器分开</p>
+<p>​    二是提出了将数据以二进制方式编码</p>
+<h4 id="变量和数据类型"><a href="#变量和数据类型" class="headerlink" title="变量和数据类型"></a>变量和数据类型</h4><p>不同的数据就需要定义不同的存储类型</p>
+<p>Python中的数据类型很多，而且也允许我们自定义新的数据类型</p>
+<ul>
+<li><p>Python中可以处理任意大小的整数</p>
+<p>Python 2.x中有<code>int</code>和<code>long</code>两种类型的整数，但这种区分对Python来说意义不大，因此在Python 3.x中整数只有int这一种</p>
+<p>支持二进制（如<code>0b100</code>，换算成十进制是4）、八进制（如<code>0o100</code>，换算成十进制是64）、十进制（<code>100</code>）和十六进制（<code>0x100</code>，换算成十进制是256）的表示法。</p>
+</li>
+</ul>
+<ul>
+<li><p>之所以称为浮点数，是因为按照科学记数法表示时，一个浮点数的小数点位置是可变的</p>
+<p>浮点数除了数学写法（如<code>123.456</code>）之外还支持科学计数法（如<code>1.23456e2</code>）</p>
+</li>
+<li><p>字符串是以单引号或双引号括起来的任意文本</p>
+<p>原始字符串表示法</p>
+<p>字节字符串表示法</p>
+<p>Unicode字符串表示法</p>
+<p>书写成多行：三个单引号或三个双引号开头，三个单引号或三个双引号结尾</p>
+</li>
+<li><p>可以直接用<code>True</code>、<code>False</code>表示布尔值（请注意大小写）</p>
+</li>
+<li><p>复数型：形如<code>3+5j</code>，跟数学上的复数表示一样，唯一不同的是虚部的<code>i</code>换成了<code>j</code></p>
+</li>
+</ul>
+<h5 id="变量使用"><a href="#变量使用" class="headerlink" title="变量使用"></a>变量使用</h5><p>在Python中可以使用<code>type</code>函数对变量的类型进行检查</p>
+<p>可以使用Python中内置的函数对变量类型进行转换。</p>
+<ul>
+<li><code>int()</code>：将一个数值或字符串转换成整数，可以指定进制。</li>
+<li><code>float()</code>：将一个字符串转换成浮点数。</li>
+<li><code>str()</code>：将指定的对象转换成字符串形式，可以指定编码。</li>
+<li><code>chr()</code>：将整数转换成该编码对应的字符串（一个字符）。</li>
+<li><code>ord()</code>：将字符串（一个字符）转换成对应的编码（整数）。</li>
+</ul>
+<blockquote>
+<p><strong>占位符语法</strong>：</p>
+<p>%d</p>
+<p>%f</p>
+<p>又注：%%表示百分号，带占位符的字符串中要表示百分号必须写成<code>%%</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#实现对通过键盘输入的两个整数的运算</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#通过input()函数获取键盘的输入(字符串形式）</span></span><br><span class="line"></span><br><span class="line">a=int(input(<span class="string">&#x27;a= &#x27;</span>))</span><br><span class="line">b=int(input(<span class="string">&#x27;b= &#x27;</span>))</span><br><span class="line">print(<span class="string">&#x27;%d/%d=%f&#x27;</span> % (a, b, a/b))</span><br><span class="line">print(<span class="string">&#x27;%d//%d=%f&#x27;</span> % (a,b,a//b))</span><br><span class="line">print(<span class="string">&#x27;%d %% %d = %d&#x27;</span> % (a, b, a % b))</span><br><span class="line">print(<span class="string">&#x27;%d ** %d = %d&#x27;</span> % (a, b, a ** b))</span><br></pre></td></tr></table></figure>
+
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[]</code> <code>[:]</code></td>
+<td>下标，切片</td>
+</tr>
+<tr>
+<td>~</td>
+<td>按位取反</td>
+</tr>
+<tr>
+<td>//</td>
+<td>整除</td>
+</tr>
+<tr>
+<td><code>is</code> <code>is not</code></td>
+<td>身份运算符</td>
+</tr>
+<tr>
+<td><code>in</code> <code>not in</code></td>
+<td>成员运算符</td>
+</tr>
+<tr>
+<td><code>not</code> <code>or</code> <code>and</code></td>
+<td>逻辑运算符</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>说明：在实际开发中，如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f=float(input(<span class="string">&#x27;华氏温度：&#x27;</span>))</span><br><span class="line">c=(f<span class="number">-32</span>)/<span class="number">1.8</span></span><br><span class="line">print(<span class="string">&#x27;%.1f华氏度=%.1f摄氏度&#x27;</span> % (f,c))</span><br><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;f:<span class="number">.1</span>f&#125;</span>华氏度=<span class="subst">&#123;c:<span class="number">.1</span>f&#125;</span>摄氏度&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">year = int(input(<span class="string">&#x27;year: &#x27;</span>))</span><br><span class="line"><span class="comment"># 如果代码太长写成一行不便于阅读 可以使用\对代码进行折行</span></span><br><span class="line">is_leap = year % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> year % <span class="number">100</span> != <span class="number">0</span> <span class="keyword">or</span> \</span><br><span class="line">        year % <span class="number">400</span> == <span class="number">0</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">比较运算符会产生布尔值，</span></span><br><span class="line"><span class="string">而逻辑运算符and和or会对这些布尔值进行组合，最终也是得到一个布尔值，</span></span><br><span class="line"><span class="string">闰年输出True，平年输出False。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">print(is_leap)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/06/python01/" data-id="ckh6103tt0004j8twecoy3ya8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag"><python></a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python00" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/05/Python00/" class="article-date">
+  <time datetime="2020-11-05T14:24:33.000Z" itemprop="datePublished">2020-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/05/Python00/">Python00</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="初识Python"><a href="#初识Python" class="headerlink" title="初识Python"></a>初识Python</h1><h4 id="Python的优缺点"><a href="#Python的优缺点" class="headerlink" title="Python的优缺点"></a>Python的优缺点</h4><p>Python的优点很多，简单的可以总结为以下几点。</p>
+<ol>
+<li>简单明了，学习曲线低，比很多编程语言都容易上手。</li>
+<li>开放源代码，拥有强大的社区和生态圈，尤其是在数据分析和机器学习领域。</li>
+<li>解释型语言，天生具有平台可移植性，代码可以工作于不同的操作系统。</li>
+<li>对两种主流的编程范式（面向对象编程和函数式编程）都提供了支持。</li>
+<li>代码规范程度高，可读性强，适合有代码洁癖和强迫症的人群。</li>
+</ol>
+<p>Python的缺点主要集中在以下几点。</p>
+<ol>
+<li><p>执行效率稍低，对执行效率要求高的部分可以由其他语言（如：C、C++）编写。</p>
+</li>
+<li><p>代码无法加密，但是现在很多公司都不销售卖软件而是销售服务，这个问题会被弱化。</p>
+</li>
+<li><p>在开发时可以选择的框架太多（如Web框架就有100多个），有选择的地方就有错误。</p>
+<p>​</p>
+</li>
+</ol>
+<h4 id="代码中的注释"><a href="#代码中的注释" class="headerlink" title="代码中的注释"></a>代码中的注释</h4><ol>
+<li>单行注释 - 以#和空格开头的部分</li>
+<li>多行注释 - 三个引号开头，三个引号结尾</li>
+</ol>
+<p>​</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/05/Python00/" data-id="ckh6103t50000j8tw7rmwhq5z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%EF%BC%8C%E7%AE%80%E4%BB%8B/" rel="tag"><历史，简介></a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/23/hello-world/" class="article-date">
@@ -163,6 +351,14 @@
       <ul>
         
           <li>
+            <a href="/2020/11/08/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/">面向对象进阶</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/08/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/">面向对象基础</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/08/os-system/">os.system</a>
           </li>
         
@@ -172,14 +368,6 @@
         
           <li>
             <a href="/2020/11/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">字符串和常用数据结构</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/07/%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97/">函数和模块</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/07/python04/">python04</a>
           </li>
         
       </ul>
